@@ -31,7 +31,7 @@ void discr(st_language language){
 
     d_intro(language);
     //Как работает
-    wprintf(L"ax^2+bx+c=0\na=? ; b=? ; c=?\n");
+    wprintf(L"ax^2 + bx + c = 0\na=?  b=?  c=?\n");
     //Вводим переменные
     inp_num(a,language,wcscpy(i,L"a"));
     inp_num(b,language,wcscpy(i,L"b"));
@@ -41,13 +41,29 @@ void discr(st_language language){
     d_intro(language);
     //Вычисляем дискриминант
     d = b*b - 4 * a * c  ;
-    x1 = (-b + sqrt(d))/(2*a);
-    x2 = (-b - sqrt(d))/(2*a);
 
-    wprintf(L"ax^2+bx+c=0\na=%i ; b=%i ; c=%i\n",a,b,c);
+    wprintf(L"ax^2 + bx + c = 0\na=%i  b=%i  c=%i\n",a,b,c);
     wprintf(L"d = %F\n",d);
-    wprintf(L"x1 = %F\n",x1);
-    wprintf(L"x2 = %F\n",x2);
+
+
+    if(d > 0){ // 2 Корня.
+      wprintf(L"2 Корня:\n");
+      x1 = (-b + sqrt(d))/(2*a);
+      x2 = (-b - sqrt(d))/(2*a);
+
+      wprintf(L"x1 = %F\n",x1);
+      wprintf(L"x2 = %F\n",x2);
+    }
+    else if(d == 0){ // Один корень.
+      wprintf(L"Один корень:\n");
+      //x1 = ((-b) / (2*a));
+      x1 = 0;
+      wprintf(L"x = %F\n",x1);
+    }
+    else{ // Вещественных корней нет
+      wprintf(L"Вещественных корней нет.\n");
+    }
+
 
     //wprintf(L"a = %i\nb = %i\nc = %i\n",a,b,c);
 
