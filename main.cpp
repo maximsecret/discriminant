@@ -10,5 +10,10 @@ int main()
     set_text(language,st_language_choise()); // Устанавливаем текст
     s_clear();
     discr(language);
+    // Only Windows
+    /*
+    int r;
+    std::cin >> r;
+    */
     return 0;
 }

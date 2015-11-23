@@ -29,5 +29,6 @@ void set_text(st_language &language, int lan){
 
 
 void s_clear(){
-  system("clear"); // if Linux}
+  system("clear"); // if Linux
+  //system("cls") // if Windows
 }
