@@ -47,7 +47,7 @@ void discr(st_language language){
     //Вычисляем дискриминант
     d = b*b - 4 * a * c  ;
     wprintf(L"ax^2 + bx + c = 0\na=%i  b=%i  c=%i\n",a,b,c);
-    wprintf(L"d = %i**2 - 4 * %i * %i [--->] %i - 4 * %i [--->] %i - %i\n",b,a,c,b*b,a*c,b*b,4*a*c);
+    wprintf(L"d = %i**2 - 4 * %i * %i [--->] %i - 4 * %i [--->] %i - %i [--->] %i\n",b,a,c,b*b,a*c,b*b,4*a*c,b*b-4*a*c);
     wprintf(L"D = %F\n",sqrt(d));
 
 
