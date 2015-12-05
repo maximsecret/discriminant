@@ -1,7 +1,10 @@
 #include <iostream>
 #include <locale> // Нужна для поддержки UTF-8
+#include <stdlib.h> // Для паузы на винде
+
 
 #include "function/functions.hpp"
+
 int main()
 {
     s_clear();
@@ -15,5 +18,9 @@ int main()
     int r;
     std::cin >> r;
     */
+    #ifdef _WIN32
+    system("pause");
+    #endif
+
     return 0;
 }
