@@ -35,16 +35,13 @@ void set_text(st_language &language, int lan){
     wcscpy(language.sqr2,L"2 root");
   }
 }
-#ifdef __linux__
-void s_clear(){
 
-  system("clear"); // if Linux
-
-}
-#elif _WIN32
+#ifdef _WIN32
 void s_clear(){
   system("cls"); // if Windows
 }
-
 #else
+void s_clear(){
+  system("clear"); // if Other
+}
 #endif
