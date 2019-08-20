@@ -5,34 +5,26 @@
 
 #include "function/functions.hpp"
 
-int main(int argc, char* argv[] )
+int main()
 {
-    int s_empty;
     setlocale(LC_ALL,""); // Включаем UTF-8
     s_clear();
     struct st_language language; //Создаем переменные с текстами.
-    set_text(language,st_language_choise()); // Устанавливаем текст
+
+    if(check_config(language) == true){
+    }else{
+        create_config(st_language_choise());
+        check_config(language);
+    }
     s_clear();
 
     while(1){
-    if(argv[2]){
-
-    discr(language);
-    #ifdef _WIN32
+    Dmain(language);
+    #ifdef __linux__
+    system("echo \n\n");
+    #elif _WIN32
     system("pause");
+    #else
     #endif
-    break;
-  }
-    else{
-      discr(language);
-      #ifdef __linux__
-      std::cin >> s_empty;
-      #elif _WIN32
-      system("pause");
-      #else
-      #endif
-      s_clear();
     }
-}
-    return 0;
 }

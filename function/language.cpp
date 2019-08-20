@@ -1,5 +1,8 @@
 #include <iostream>
 #include <stdlib.h> // Для очистки терминала
+#include <iostream>
+#include <fstream>
+#include <string>
 #include "functions.hpp"
 
 int st_language_choise(){
@@ -16,6 +19,38 @@ int st_language_choise(){
         }
     }
 }}
+bool check_config(st_language &language){
+    std::string line;
+    std::ifstream in("config.ini",std::ifstream::binary);
+    if(!in){
+        return false;
+    }
+    getline(in,line);
+    in.close();
+    if(line=="ru"){
+        set_text(language,1);
+        return true;
+    }
+    else if (line=="en") {
+        set_text(language,0);
+        return true;
+    }
+
+    return false;
+}
+void create_config(int i){
+    std::ofstream out("config.ini",std::ofstream::binary);
+
+    char ru[2] = {'r','u'};
+    char en[2] = {'e','n'};
+
+    if(i==1){
+        out.write(ru,2);
+    }
+    if(i==0){
+        out.write(en,2);
+    }
+}
 
 void set_text(st_language &language, int lan){
   if(lan == 1){ //Русский язык

@@ -1,33 +1,33 @@
 #include <iostream>
 #include <cmath> // Нужна для вычисления квадратного корня
-#include <string.h>
 #include <stdio.h>
 
 #include "functions.hpp"
 
-int inp_num(int &a,st_language language){
-  while(1){
-  if(std::cin >> a){
-    break;
-  } else {
-    wprintf(L"%ls",language.error);
-    std::cin.clear();
-    while(std::cin.get() != '\n') ;
-  }
-}
-  return 0;
+int inp_num(long int &a,st_language language){
+    while(1){
+        if(std::cin >> a){
+            break;
+        } else {
+            wprintf(L"%ls",language.error);
+            std::cin.clear();
+            while(std::cin.get() != '\n') ;
+        }
+    }
+    return 0;
 }
 
 inline void d_intro(st_language language){
     wprintf(L"%ls alpha\n",language.intro);
 }
 
-void discr(st_language language){
-    int a,b,c;
-    float d,x1,x2;
+void Dmain(st_language language){
+    long int a,b,c;
+    double d,x1,x2;
     //char i[2]="a";//Временная переменная, для указания a,b,c
 
     d_intro(language);
+
     //Как работает
     wprintf(L"ax^2 + bx + c = 0\n");
     wprintf(L"a=?  b=?  c=?\n");
@@ -45,7 +45,7 @@ void discr(st_language language){
     s_clear(); // Чистим терминал
     d_intro(language);
     //Вычисляем дискриминант
-    d = b*b - 4 * a * c  ;
+    d = Dcalculate(a,b,c);
     wprintf(L"ax^2 + bx + c = 0\na=%i  b=%i  c=%i\n",a,b,c);
     wprintf(L"d = %i**2 - 4 * %i * %i [--->] %i - 4 * %i [--->] %i - %i [--->] %i\n",b,a,c,b*b,a*c,b*b,4*a*c,b*b-4*a*c);
     wprintf(L"D = %F\n",sqrt(d));
@@ -70,8 +70,10 @@ void discr(st_language language){
     else{ // Вещественных корней нет
       wprintf(L"%ls.\n",language.sqr0);
     }
-
-
     //wprintf(L"a = %i\nb = %i\nc = %i\n",a,b,c);
 
+}
+
+double Dcalculate(long int a,long int b,long int c){
+   return (static_cast<double>(b*b - 4 * a * c));
 }

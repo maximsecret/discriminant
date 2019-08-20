@@ -12,8 +12,12 @@ struct st_language{
 
 int st_language_choise();
 
-void discr(st_language language);
+void Dmain(st_language language);
+double Dcalculate(long int a,long int b,long int c);
+
 void s_clear();
 int inp_num(int &a, st_language language);
 inline void d_intro(st_language language);
 void set_text(st_language &language, int lan);
+bool check_config(st_language &language);
+void create_config(int i);
